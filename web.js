@@ -1,12 +1,14 @@
 var express = require('express');
+var app = express();
 
-var app = express.createServer(express.logger());
+var newBaseURL = process.env.NEW_BASE_URL || 'http://example.com';
+var redirectStatus = parseInt(process.env.REDIRECT_STATUS || 302);
+var port = process.env.PORT || 5000;
 
 app.get('*', function(request, response) {
-  response.redirect(process.env.NEW_BASE_URL + request.url)
+  response.redirect(redirectStatus, newBaseURL + request.url);
 });
 
-var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });

@@ -5,6 +5,10 @@
     "NEW_BASE_URL": {
       "description": "Redirect all requests to this URL.",
       "value": "https://my.deeplove.com"
+    },
+    "REDIRECT_STATUS": {
+      "description": "Redirect with this HTTP status code.",
+      "value": "301"
     }
   }
 }
